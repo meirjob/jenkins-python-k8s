@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pyapp
+  template:
+    metadata:
+      labels:
+        app: pyapp
+    spec:
+      containers:
+        - name: pyapp-container
+          image: <your-docker-hub-username>/<your-image-name> 
+          ports:
+            - containerPort: 5000
+          command: ["python", "app.py"]
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pyapp-service
+spec:
+  selector:
+    app: pyapp
+  ports:
+    - name: http
+      port: 443
+      targetPort: 5000
+  type: ClusterIP
