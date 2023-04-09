@@ -7,7 +7,7 @@ pipeline {
         script {
           // Build the Docker image
            docker build -t hello-world-app .
-           docker push <your-docker-hub-username>/<your-image-name>
+           docker push <your-repo-username>/hello-world-app
         }
       }
     }

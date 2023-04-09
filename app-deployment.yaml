@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: pyapp-container
-          image: <your-docker-hub-username>/<your-image-name> 
+          image: <your-repo-username>/hello-world-app 
           ports:
             - containerPort: 5000
           command: ["python", "app.py"]
